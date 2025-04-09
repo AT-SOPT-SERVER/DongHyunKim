@@ -16,16 +16,7 @@ public class PostController {
 
     // 2, 게시글 작성 -> service에서 정의해둔 save를 사용하는 부분
     public boolean createPost(String title) {
-        if(title == null || title.trim().isEmpty()){
-            return false;
-        }
-        if(title.length()>30){
-            System.out.println("제목은 30자 이하로 작성해주세요.");
-            return false;
-        }
-        Post post = new Post(1, title);
-        postService.createPost(post);
-        return true;
+        return postService.createPost(title);
     }
 
     // 3. 레포지토리에서 던진 값 받는 부분
